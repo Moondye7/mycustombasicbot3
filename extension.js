@@ -13,7 +13,10 @@
         //Load custom settings set below
         bot.retrieveSettings();
 
-         
+        bot.getLocked = function() {
+            if($(".wait-list.option.enabled").length > 0) return true;
+            else return false;
+        }         
 
         bot.commands.creditsCommand = {
             command: 'credits',  //The command to be called. With the standard command literal this would be: !bacon
@@ -37,6 +40,47 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     API.sendChat("/me Join Our Facebook Group: http://on.fb.me/1dRgupy");
+                }
+            }
+        };
+
+        bot.commands.clearqueueCommand = {
+            command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var locked = bot.getLocked();
+                    if(locked) {
+                        $.ajax({
+                        type: 'PUT', 
+                        url: 'https://plug.dj/_/booth/lock', 
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            isLocked: false,
+                            removeAllDJs: false })
+                        });
+                    }   
+                    $.ajax({
+                    type: 'PUT', 
+                    url: 'https://plug.dj/_/booth/lock', 
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        isLocked: true,
+                        removeAllDJs: true })
+                    });
+                    if(!locked) {
+                        $.ajax({
+                        type: 'PUT', 
+                        url: 'https://plug.dj/_/booth/lock', 
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            isLocked: false,
+                            removeAllDJs: false })
+                        });
+                    }
                 }
             }
         };
