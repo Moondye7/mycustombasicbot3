@@ -128,7 +128,7 @@
         bouncerPlus: true,
         lockdownEnabled: false,
         lockGuard: false,
-        maximumLocktime: 10,
+        maximumLocktime: 5,
         cycleGuard: true,
         maximumCycletime: 10,
         timeGuard: true,
