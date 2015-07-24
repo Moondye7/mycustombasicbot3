@@ -123,7 +123,7 @@
         language: "english",
         chatLink: "https://rawgit.com/cooljddj/mybasicBot/master/lang/en.json",
         maximumAfk: 60,
-        afkRemoval: False,
+        afkRemoval: false,
         maximumDc: 120,
         bouncerPlus: true,
         lockdownEnabled: false,
