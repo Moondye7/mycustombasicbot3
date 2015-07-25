@@ -152,7 +152,7 @@
         afkRankCheck: "ambassador",
         motdEnabled: true,
         motdInterval: 10,
-        motd: "Countdown till fest: http://bit.ly/1CRECE6",
+        motd: "Countdown till fest: http://bit.ly/1VFwZq7",
         filterChat: true,
         etaRestriction: false,
         welcome: false,
