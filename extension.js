@@ -167,8 +167,8 @@
         songstats: false,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/cooljddj/mycustombasicbot/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/cooljddj/mycustombasicbot/master/blacklists/ExampleOPlist.json"
+            NSFW: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/ExampleNSFWlist.json",
+            OP: "https://rawgit.com/KGTHREAT/mycustombasicbot3/master/blacklists/ExampleOPlist.json"
         }
     }));
 
